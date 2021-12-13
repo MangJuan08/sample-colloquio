@@ -6,10 +6,8 @@ const url = "https://jsonplaceholder.typicode.com/posts";
 
 const Home = () => {
   const [posts, setPost] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     axios
       .get(url, {
         params: {
@@ -18,12 +16,9 @@ const Home = () => {
       })
       .then((res) => {
         setPost(res.data);
-        setLoading(false);
       })
       .catch((err) => console.log(err));
-    return () => {
-      setLoading(false);
-    };
+    return () => {};
   }, []);
 
   return (

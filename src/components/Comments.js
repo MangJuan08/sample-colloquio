@@ -12,7 +12,7 @@ const Comments = (props) => {
         setComments(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  });
   return (
     <div>
       <form>

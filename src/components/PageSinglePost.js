@@ -14,7 +14,7 @@ const PageSinglePost = (props) => {
         setApost(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  });
   return (
     <div>
       <h1>{aPost.title}</h1>

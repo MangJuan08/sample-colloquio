@@ -5,7 +5,7 @@ import "./comments.css";
 const url = "https://jsonplaceholder.typicode.com/posts";
 const Comments = (props) => {
   const { id } = props;
-  const ids = useParams();
+  
 
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
@@ -33,7 +33,7 @@ const Comments = (props) => {
   };
 
   useEffect(() => {
-    console.log(ids);
+   
     axios
       .get(url + "/" + id + "/comments")
       .then((res) => {
@@ -43,6 +43,7 @@ const Comments = (props) => {
     const { log } = console;
     log(comments);
   }, []);
+
   return (
     <div>
       <form onSubmit={addComment}>
@@ -73,9 +74,8 @@ const Comments = (props) => {
           return (
             <li key={item.id} className="comment">
               <div class="card text-white bg-dark mb-3">
-                <div class="card-header">Header</div>
+                <div class="card-header">{item.name.toUppercase()}</div>
                 <div class="card-body">
-                  <h5 class="card-title">Dark card title</h5>
                   <p class="card-text">{item.body}</p>
                 </div>
               </div>
